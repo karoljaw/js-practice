@@ -1,33 +1,23 @@
-const input = document.querySelector("#number");
-const container = document.querySelector(".container");
+const body = document.querySelector("body");
+const button = document.querySelector(".button");
 
-input.addEventListener("keyup", ()=> {              //ODPALA SIĘ EVENT JAK URZYTKOWNIK PUSZCZA KLAWISZ
-  console.log(input.value)
-  if (input.value == 511) {                         //JEŚLI WARTOŚĆ INPUTA RÓWNA SIĘ 511 POJAWIA SIĘ ZIELONA WIADOMOŚĆ....
-    let message = document.createElement("p");
-    message.style.color = "green";
-    message.textContent = "Poprawnie"
-    container.appendChild(message)
-  } else {                                                              //INACZEJ WIADOMOŚĆ CZERWONA
-        if (container.lastElementChild.classList.contains('error')) {   //JEŚLI JUŻ JEST WIDOMOŚĆ CZERWONA TO SIĘ USUWA I POJAWIA NA NOWO
-          let error = document.querySelector(".error");
-          error.remove();
-          let message = document.createElement("p");
-          message.style.color = "red";
-          message.classList.add("error")
-          message.textContent = "Spróbuj jeszcze raz"
-          container.appendChild(message)
-        } else {                                            //...A JAK NIE MA TO POPROSTU SIĘ POJAWIA
-          let message = document.createElement("p");
-          message.style.color = "red";
-          message.classList.add("error")
-          message.textContent = "Spróbuj jeszcze raz"
-          container.appendChild(message)
-        }
-        
-      }                                      
-    
-  
-})
+
+const arr = ["Karol", "Kamila", 54, 677, "Marta", 87];
+
+button.addEventListener("click", () => {    //DODAJE EVENT NA BUTTONA
+  const ul = document.createElement("ul");  //TWORZĘ ELEMENT <UL></UL>
+  arr.forEach(function(item) {              //ITERUJĘ TO TABLICY (ITEM TO KAŻDY ELEMENT TABLICY Z OSOBNA NP. "KAROL", 54 ITD...)
+    const li = document.createElement("li"); //TWORZĘ LI DO LISTY
+    if (isNaN(item)) {                       // JEŚLI ITEM NIE JEST NUMEREM...
+      li.style.color = "green";              // ...DOSTAJE KOLOR ZIELONY
+    } else {                                 //INACZEJ...
+      li.style.color = "blue";              // NIEBIESKI
+    }
+      li.textContent = item;                //DODAJĘ ITEM JAKO ZAWARTOŚĆ LI
+      ul.appendChild(li);                   // DODOJĘ LI DO UL
+      body.appendChild(ul);                 // I NA KOŃCU UL DO BODY
+  })
+  }
+)
 
 
