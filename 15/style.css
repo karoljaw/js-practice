@@ -1,0 +1,40 @@
+body {
+  background-color: rgb(33, 190, 138);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.counter {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+@-webkit-keyframes bg-animation {
+  0% {
+      background-position: top;
+  }
+
+  50% {
+      background-position: bottom;
+  }
+  100% {
+      background-position: top;
+  }
+}
+.car {
+  height: 100px;
+  animation: move 10s linear infinite;
+  color: burlywood;
+}
+
+@keyframes move{
+from {
+  transform: translateX(0);
+}
+to {
+  transform: translateX(100vw);
+}
+}
+
